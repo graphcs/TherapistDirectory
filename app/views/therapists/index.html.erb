@@ -1,0 +1,58 @@
+<div class="therapists-container">
+  <h1 class="center-heading">Therapists Directory</h1>
+
+  <%= form_tag therapists_path, method: :get, class: 'filter-form' do %>
+    <div class="form-group">
+      <%= label_tag 'insurance', 'Insurance:' %>
+      <%= text_field_tag :insurance, params[:insurance], list: 'insurance-options', class: 'form-control' %>
+      <datalist id="insurance-options">
+        <option value="UnitedHealth Group">
+        <option value="Anthem">
+        <option value="Kaiser Permanente">
+        <option value="Ambetter">
+        <option value="Humana">
+        <option value="Blue Cross Blue Shield">
+        <option value="Cigna">
+        <option value="Aetna">
+        <option value="Molina Healthcare">
+        <option value="GuideWell (Florida Blue)">
+        <option value="HCSC (Health Care Service Corporation)">
+        <option value="Highmark">
+      </datalist>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag 'remote', 'Remote:' %>
+      <%= select_tag :remote, options_for_select([[], ['Yes', true], ['No', false]], params[:remote]), class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag 'location', 'Location:' %>
+      <%= select_tag :location, options_for_select(['', 'Brooklyn', 'Queens', 'Bronx', 'Manhattan', 'Staten Island'], params[:location]), class: 'form-control' %>
+    </div>
+    
+    <%= submit_tag 'Filter', class: 'btn btn-primary' %>
+    <%= link_to 'Clear', therapists_path, class: 'btn btn-secondary' %>
+  <% end %>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Insurance</th>
+        <th>Remote</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @therapists.each do |therapist| %>
+        <tr>
+          <td><%= therapist.name %></td>
+          <td><%= therapist.insurance %></td>
+          <td><%= therapist.remote ? 'Yes' : 'No' %></td>
+          <td><%= therapist.location %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
