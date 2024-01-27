@@ -41,6 +41,10 @@ Run tests:
 
 `rails test test/controllers/therapists_controller_test.rb`
 
+Precompile assets:
+
+`rails assets:precompile`
+
 Run the app server
 
 `rails server`
@@ -59,10 +63,10 @@ http://64.225.50.172:3000/
 
 ## Potential Improvements:
 
-Enhancing the UI/UX by incorporating more user-friendly design elements.
+- Enhancing the UI/UX by incorporating more user-friendly design elements.
 
-Implementing client-side validation to provide instant feedback on form input errors.
+- Implementing client-side validation to provide instant feedback on form input errors.
 
-Add additional filtering options, such as therapist specialties or appointment availability.
+- Add additional filtering options, such as therapist specialties or appointment availability.
 
-Incorporate an advanced search feature for more specific user queries.
+- Incorporate an advanced search feature for more specific user queries.

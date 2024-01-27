@@ -31,7 +31,7 @@
       <%= select_tag :location, options_for_select(['', 'Brooklyn', 'Queens', 'Bronx', 'Manhattan', 'Staten Island'], params[:location]), class: 'form-control' %>
     </div>
     
-    <%= submit_tag 'Filter', class: 'btn btn-primary', style: "background-color: #9a4f9f" %>
+    <%= submit_tag 'Filter', class: 'btn btn-primary' %>
     <%= link_to 'Clear', therapists_path, class: 'btn btn-secondary' %>
   <% end %>
 
@@ -39,7 +39,7 @@
     <%= render 'table' %>
   </div>
 
-  <%= link_to 'Back to Home', root_path, class: 'btn btn-primary', style: "background-color: #9a4f9f" %>
+  <%= link_to 'Back to Home', root_path, class: 'btn btn-primary'%>
 
 </div>
 
