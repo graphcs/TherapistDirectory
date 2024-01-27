@@ -44,5 +44,5 @@ Run app publicly accessible on webserver:
 Stop background process running on port 3000:
 `kill $(lsof -t -i:3000)`
 
-Staging environment:
+Staging environment link:
 http://64.225.50.172:3000/
