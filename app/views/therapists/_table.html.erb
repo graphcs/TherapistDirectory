@@ -1,0 +1,32 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Insurance</th>
+            <th>Remote</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @therapists.present? %>
+            <% @therapists.each do |therapist| %>
+            <tr>
+                <td><%= therapist.name %></td>
+                <td><%= therapist.insurance %></td>
+                <td><%= therapist.remote ? 'Yes' : 'No' %></td>
+                <td class="location"><%= therapist.location %></td>
+            </tr>
+            <% end %>
+        <% else %>
+            <tr>
+                <td colspan="4">
+                    <p class='no-results-message'>No results found - try removing some filters</p>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<div class="result-count">
+  <%= "#{@therapists.size} result(s) found" if @therapists.present? %>
+</div>

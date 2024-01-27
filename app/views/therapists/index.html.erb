@@ -35,24 +35,50 @@
     <%= link_to 'Clear', therapists_path, class: 'btn btn-secondary' %>
   <% end %>
 
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Insurance</th>
-        <th>Remote</th>
-        <th>Location</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @therapists.each do |therapist| %>
-        <tr>
-          <td><%= therapist.name %></td>
-          <td><%= therapist.insurance %></td>
-          <td><%= therapist.remote ? 'Yes' : 'No' %></td>
-          <td><%= therapist.location %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <%= render 'table' %>
+  </div>
+
+  <%= link_to 'Back to Home', root_path, class: 'btn btn-primary' %>
+
 </div>
+
+<script>
+  $(document).ready(function() {
+    function updateTherapistsList() {
+      var insuranceInput = $("#insurance");
+      var insurance = $("#insurance").val();
+      var remote = $("#remote").val();
+      var location = $("#location").val();
+
+      $.ajax({
+        type: "GET",
+        url: "/therapists",
+        data: { insurance: insurance, remote: remote, location: location },
+        success: function(data) {
+          var tableData = $(data).find(".table-container tbody").html();
+          $(".table-container tbody").html(tableData);
+
+          var resultCount = $(".table-container tbody tr td.location").length;
+          $(".result-count").text(resultCount + " result(s) found");
+        },
+        error: function(data) {
+          console.error("Error updating therapists list:", data);
+        }
+      });
+
+      if (!isValidInsurance(insurance)) {
+        insuranceInput.val('');
+        return;
+      }
+    }
+
+    $("#insurance, #remote, #location").on("change", updateTherapistsList);
+
+    function isValidInsurance(insurance) {
+      var validInsuranceList = ['UnitedHealth Group', 'Anthem', 'Kaiser Permanente', 'Ambetter', 'Humana', 'Blue Cross Blue Shield', 'Cigna', 'Aetna', 'Molina Healthcare', 'CVS Health (Aetna)', 'GuideWell (Florida Blue)', 'HCSC (Health Care Service Corporation)', 'Highmark'];
+      return validInsuranceList.includes(insurance);
+    }
+
+  });
+</script>

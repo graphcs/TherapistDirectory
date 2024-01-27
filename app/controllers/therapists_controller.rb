@@ -2,6 +2,11 @@ class TherapistsController < ApplicationController
   def index
     @therapists = Therapist.all
     apply_filters
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private
