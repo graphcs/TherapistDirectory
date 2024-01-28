@@ -4,6 +4,8 @@
 
 Therapists Directory is a Ruby on Rails application that allows prospective patients to view a list of therapists and filter the results based on various criteria.
 
+Link: http://www.mytherapistdirectory.com
+
 ## Prerequisites
 
 Make sure you have the following installed on your system:
@@ -57,9 +59,16 @@ Stop background process running on port 3000:
 
 `kill $(lsof -t -i:3000)`
 
-Staging environment link:
+Run on port 80:
 
-http://64.225.50.172:3000/
+Run app publicly accessible on webserver:
+
+`nohup rails server -b 0.0.0.0 -p 80 > log.txt 2>&1 &`
+
+Stop background process running on port 80:
+
+`kill $(lsof -t -i:80)`
+
 
 ## Potential Improvements:
 
@@ -69,4 +78,14 @@ http://64.225.50.172:3000/
 
 - Add additional filtering options, such as therapist specialties or appointment availability.
 
-- Incorporate an advanced search feature for more specific user queries.
+- Incorporate more advanced search features for more specific user queries.
+
+- Support multiple insurances per therapist
+
+- Allow booking of appointments with therapists
+
+- Pagingation of search results
+
+- Map view showing results on a 
+
+- Link to therapist's online profile
