@@ -6,6 +6,10 @@ My Therapist Directory is a Ruby on Rails application that allows prospective pa
 
 Link: http://mytherapistdirectory.com
 
+Video demo:
+
+https://www.loom.com/share/7780c543bffd4540ad3f3235f9efed1a?sid=997e4f35-48f8-4b63-b6c9-f541bfa85592
+
 ## Prerequisites
 
 Make sure you have the following installed on your system:
@@ -84,8 +88,8 @@ Stop background process running on port 80:
 
 - Allow booking of appointments with therapists
 
-- Pagingation of search results
+- Pagination of search results
 
-- Map view showing results on a 
+- Map view showing results on a map
 
 - Link to therapist's online profile
