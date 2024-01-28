@@ -54,7 +54,7 @@ jobs:
           if lsof -t -i:80; then
             timeout 60 kill $(lsof -t -i:80)
           fi
-          timeout 60 nohup rails server -b 0.0.0.0 -p 80 > log.txt 2>&1 &
+          nohup rails server -b 0.0.0.0 -p 80 > log.txt 2>&1 &
           exit
         ENDSSH
       
