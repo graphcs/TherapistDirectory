@@ -51,6 +51,9 @@ jobs:
           rails db:migrate RAILS_ENV=test
           rails db:seed
           rails assets:precompile
+          # Killing any process using port 80
           kill $(lsof -t -i:80)
+          # Starting Rails server in the background in a way that allows SSH session to close
           nohup rails server -b 0.0.0.0 -p 80 > log.txt 2>&1 &
+          exit
         ENDSSH
