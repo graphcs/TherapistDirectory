@@ -1,0 +1,36 @@
+name: Rails CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1.2' # Set up Ruby 3.1.2
+
+    - name: Install dependencies
+      run: |
+        gem install rails -v 7.0.8
+        bundle install
+
+    - name: Migrate and Seed DB
+      run: |
+        rails db:migrate
+        rails db:migrate RAILS_ENV=test
+        rails db:seed
+
+    - name: Run tests
+      run: rails test test/controllers/therapists_controller_test.rb
+
+    - name: Precompile assets
+      run: rails assets:precompile
