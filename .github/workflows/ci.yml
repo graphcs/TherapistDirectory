@@ -47,6 +47,8 @@ jobs:
           cd /root/ROR-Therapists-Project/therapist_directory
           git pull
           bundle install
+          rails db:drop
+          rails db:create
           rails db:migrate
           rails db:migrate RAILS_ENV=test
           rails db:seed
@@ -54,7 +56,7 @@ jobs:
           if lsof -t -i:80; then
             timeout 60 kill $(lsof -t -i:80)
           fi
-          nohup rails server -b 0.0.0.0 -p 80 > log.txt 2>&1 &
+          screen -dm bash -c 'cd /root/ROR-Therapists-Project/therapist_directory && rails server -b 0.0.0.0 -p 80 > log.txt 2>&1'
           exit
         ENDSSH
       
