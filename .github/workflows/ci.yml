@@ -51,7 +51,10 @@ jobs:
           rails db:migrate RAILS_ENV=test
           rails db:seed
           rails assets:precompile
-          kill $(lsof -t -i:80)
-          nohup rails server -b 0.0.0.0 -p 80 > log.txt 2>&1 &
+          if lsof -t -i:80; then
+            timeout 15 kill $(lsof -t -i:80)
+          fi
+          timeout 15 nohup rails server -b 0.0.0.0 -p 80 > log.txt 2>&1 &
           exit
         ENDSSH
+      
