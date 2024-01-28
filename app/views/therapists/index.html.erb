@@ -31,8 +31,7 @@
       <%= select_tag :location, options_for_select(['', 'Brooklyn', 'Queens', 'Bronx', 'Manhattan', 'Staten Island'], params[:location]), class: 'form-control' %>
     </div>
     
-    <%= submit_tag 'Filter', class: 'btn btn-primary' %>
-    <%= link_to 'Clear', therapists_path, class: 'btn btn-secondary' %>
+    <%= link_to 'Clear filters', therapists_path, class: 'btn btn-secondary' %>
   <% end %>
 
   <div class="table-container">
@@ -60,7 +59,7 @@
           $(".table-container tbody").html(tableData);
 
           var resultCount = $(".table-container tbody tr td.location").length;
-          $(".result-count").text(resultCount + " result(s) found");
+          $(".result-count").text("Results found: " + resultCount);
         },
         error: function(data) {
           console.error("Error updating therapists list:", data);

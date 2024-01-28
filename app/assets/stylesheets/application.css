@@ -120,3 +120,17 @@ h2 {
   background-color: #9a4f9f;
   color: #fff;
 }
+
+.header-image {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 100px; /* Increased border-radius */
+  padding: 5px; /* Padding for the pseudo-border */
+  background: linear-gradient(45deg, rgba(229, 215, 240, 1), rgba(229, 215, 240, 0.6), transparent); /* Gradient blend */
+  box-shadow: 0 0 15px 5px rgba(229, 215, 240, 0.3); /* Soft shadow for blending */
+}
