@@ -1,8 +1,8 @@
 # README
 
-# My My Therapist Directory
+# My Therapist Directory
 
-Therapists Directory is a Ruby on Rails application that allows prospective patients to view a list of therapists and filter the results based on various criteria.
+My Therapist Directory is a Ruby on Rails application that allows prospective patients to view a list of therapists and filter the results based on various criteria.
 
 Link: http://www.mytherapistdirectory.com
 
