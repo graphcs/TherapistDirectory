@@ -34,3 +34,23 @@ jobs:
 
     - name: Precompile assets
       run: rails assets:precompile
+
+    - name: Deploy to mytherapistdirectory.com
+      env:
+        DO_SSH_KEY: ${{ secrets.DO_SSH_KEY }} # Digital Ocean SSH key stored in GitHub secrets
+        SERVER_USER: root
+        SERVER_IP: 159.203.128.202
+      run: |
+        echo "$DO_SSH_KEY" > deploy_key
+        chmod 600 deploy_key
+        ssh -i deploy_key -o "StrictHostKeyChecking=no" $SERVER_USER@$SERVER_IP << 'ENDSSH'
+          cd /root/ROR-Therapists-Project/therapist_directory
+          git pull
+          bundle install
+          rails db:migrate
+          rails db:migrate RAILS_ENV=test
+          rails db:seed
+          rails assets:precompile
+          kill $(lsof -t -i:80)
+          nohup rails server -b 0.0.0.0 -p 80 > log.txt 2>&1 &
+        ENDSSH
