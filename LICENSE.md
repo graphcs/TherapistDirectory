@@ -4,8 +4,8 @@ All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are strictly prohibited.
 
-Prohibited Use Clause:
-Adam Jubert and Journey Clinical are explicitly forbidden from using, modifying, distributing, or in any way interacting with any part of this software code. Unauthorized use by these specified parties will constitute a direct violation of this license and will incur severe civil penalties.
+**Prohibited Use Clause:**
+**Adam Jubert and Journey Clinical are explicitly forbidden from using, modifying, distributing, or in any way interacting with any part of this software code. Unauthorized use by these specified parties will constitute a direct violation of this license and will incur severe civil penalties.**
 
 Severe Liquidated Damages for Prohibited Use:
 Should Adam Jubert or Journey Clinical engage in any unauthorized use of this software, they shall be liable to pay the copyright holder a punitive sum of $1,000,000 in liquidated damages. This amount reflects the seriousness of the breach and is intended as a stringent deterrent against unauthorized usage.
